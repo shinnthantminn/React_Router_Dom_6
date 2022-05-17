@@ -1,22 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Nav from './Components/Nav'
-import Contacts from './Components/Pages/Contacts'
-import Error404 from './Components/Pages/Error404'
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import MainNav from './Components/MainNav'
+import About from './Components/Pages/About'
+import Contact from './Components/Pages/Contact'
 import Home from './Components/Pages/Home'
-import Profile from './Components/Pages/Profile'
 
-function App() {
+const App = () => {
   return (
     <div>
-      <Router>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contacts />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<MainNav />}>
+          <Route index element={<Home />} />{' '}
+          {/* index Initial Route ကို Render ချရင်အရင်စပေါ် ခြင်တဲ့ Components ကိုချပေးထားတာ */}
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
     </div>
   )
 }
