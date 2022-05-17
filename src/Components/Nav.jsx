@@ -4,7 +4,11 @@ import { NavLink } from 'react-router-dom'
 function Nav() {
   return (
     <div>
-      <NavLink to="/" className={({ isActive }) => (isActive ? 'one' : 'two')}>
+      <NavLink
+        to="/"
+        className={({ isActive }) => (isActive ? 'one' : 'two')}
+        replace //သူနောက်မှာဘယ်သူမှ မရှိအောင်လုပ်တာပါ backword ပြန်လုပ်လို့မရအောင်လုပ်တာပါ
+      >
         Home
       </NavLink>
       <NavLink
